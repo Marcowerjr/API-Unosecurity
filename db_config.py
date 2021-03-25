@@ -7,5 +7,5 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_NAME = os.getenv("DB_NAME")
 
 
-client = pymongo.MongoClient("mongodb+srv://{DB_USER}>:{DB_PASSWORD}@bd.3v6dc.mongodb.net/{DB_NAME}?retryWrites=true&w=majority")
-db = client.users
+client = pymongo.MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASSWORD}@bd.3v6dc.mongodb.net/{DB_NAME}?retryWrites=true&w=majority")
+db = client.securityAppCuu
