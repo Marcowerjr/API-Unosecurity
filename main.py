@@ -60,7 +60,6 @@ def update_users(n_top):
         }})
     else:
         return jsonify({"status":400, "message": f"the user #{n_top} not found"})
-
     return jsonify({"status":200, "message": f"The user #{n_top} has been updated successfully"})
 
 
