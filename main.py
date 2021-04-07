@@ -78,7 +78,7 @@ def delete_users(n_top):
 #Ruta para crear nuevos dispositivos.
 @app.route('/api/new_device/', methods=['POST'])
 def add_new_device():
-    db.db.device.insert_one({
+    db.db.devices.insert_one({
         "n_top": request.json["n_top"],
         "status":request.json["status"],
         "latitude":request.json["latitude"],
@@ -93,8 +93,8 @@ def add_new_device():
 #Actualizar nuestro dispositivo
 @app.route('/api/top_device/update/<int:n_top>',methods=['PUT'])
 def update_device(n_top):
-    if db.db.device.find_one({'n_top':n_top}):
-        db.db.device.update_one({'n_top':n_top},
+    if db.db.devices.find_one({'n_top':n_top}):
+        db.db.devices.update_one({'n_top':n_top},
         {'$set':{           
         "n_top": request.json["n_top"],
         "status":request.json["status"],
