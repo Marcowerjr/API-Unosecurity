@@ -14,7 +14,7 @@ def test():
     })
 
 #implementar que solo el master pueda acceder a esta ruta
-@app.route('/admin/users/{TOKEN}/all', methods=['GET'])
+@app.route(f'/admin/users/{TOKEN}/all', methods=['GET'])
 def show_users():
     all_users = list(db.db.users.find())
     for users in all_users:
