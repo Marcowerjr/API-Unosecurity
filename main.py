@@ -111,7 +111,7 @@ def update_device(n_top):
 #Obtener
 @app.route('/device/<int:n_top>/', methods=['GET'])
 def show_a_top_device(n_top):
-    device = db.db.device.find_one({'n_top':n_top})
+    device = db.db.devices.find_one({'n_top':n_top})
     del device ["_id"]
 
     return jsonify({
