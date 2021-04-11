@@ -49,14 +49,14 @@ def add_new_users():
 
 @app.route('/api/top_users/update/<int:n_top>',methods=['PUT'])
 def update_users(n_top):
-
+    
     if db.db.users.find_one({'n_top':n_top}):
         db.db.users.update_one({'n_top':n_top},
         {'$set':{   
         "n_top": request.json["n_top"],
         "name":request.json["name"],
         "email":request.json["email"],
-        "email":request.json["email"],
+        "phone":request.json["phone"],
         "password":request.json["password"]
         }})
     else:
