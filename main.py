@@ -107,6 +107,12 @@ def update_device(n_top):
 
     return jsonify({"status":200, "message": f"The device #{n_top} has been updated successfully"})
 
+@app.route(f'/device/{TOKEN}/all', methods=['GET'])
+def show_devices():
+    all_devices = list(db.db.devices.find())
+    for devices in all_devices:
+       del devices ["_id"]
+    return jsonify({"all_devices":all_devices})
 
 #Obtener
 @app.route('/device/<int:n_top>/', methods=['GET'])
