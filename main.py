@@ -20,7 +20,12 @@ def show_users():
     for users in all_users:
        del users ["_id"]
     return jsonify({"all_users":all_users})
-    
+
+@app.route(f'/admin/users/{TOKEN}/last', methods=['GET'])
+def show_last_user():
+    user = list(db.db.users.find())[-1]
+    del user ["_id"]
+    return jsonify(user)
 
 @app.route('/users/<int:n_top>/', methods=['GET'])
 def show_a_top_users(n_top):
